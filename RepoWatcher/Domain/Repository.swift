@@ -17,4 +17,5 @@ struct Repository {
 	let pushedAt: Date
 	
 	var avatarData = Data()
+	var contributors = [Contributor]()
 }

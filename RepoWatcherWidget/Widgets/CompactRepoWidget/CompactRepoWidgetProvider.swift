@@ -7,17 +7,17 @@
 
 import WidgetKit
 
-struct Provider: TimelineProvider {
-	func placeholder(in context: Context) -> RepoEntry {
-		RepoEntry(date: Date(), topRepository: .dummy1, bottomRepository: .dummy2)
+struct CompactRepoWidgetProvider: TimelineProvider {
+	func placeholder(in context: Context) -> CompactRepoWidgetEntry {
+		CompactRepoWidgetEntry(date: Date(), topRepository: .dummy1, bottomRepository: .dummy2)
 	}
 
-	func getSnapshot(in context: Context, completion: @escaping (RepoEntry) -> ()) {
-		let entry = RepoEntry(date: Date(), topRepository: .dummy1, bottomRepository: .dummy2)
+	func getSnapshot(in context: Context, completion: @escaping (CompactRepoWidgetEntry) -> ()) {
+		let entry = CompactRepoWidgetEntry(date: Date(), topRepository: .dummy1, bottomRepository: .dummy2)
 		completion(entry)
 	}
 
-	func getTimeline(in context: Context, completion: @escaping (Timeline<RepoEntry>) -> ()) {
+	func getTimeline(in context: Context, completion: @escaping (Timeline<CompactRepoWidgetEntry>) -> ()) {
 		Task {
 			do {
 				var topRepository = try await NetworkManager.shared.getRepo(url: API.swiftNews.rawValue)
@@ -31,7 +31,7 @@ struct Provider: TimelineProvider {
 					bottomRepository?.avatarData = bottomAvatarData 
 				}
 				
-				let entry = RepoEntry(date: .now, topRepository: topRepository, bottomRepository: bottomRepository)
+				let entry = CompactRepoWidgetEntry(date: .now, topRepository: topRepository, bottomRepository: bottomRepository)
 				let nextUpdate = Date().addingTimeInterval(86400) // 24h
 				let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
 				completion(timeline)

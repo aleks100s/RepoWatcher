@@ -8,12 +8,12 @@
 import WidgetKit
 import SwiftUI
 
-struct RepoWatcherWidget: Widget {
-    let kind: String = "RepoWatcherWidget"
+struct CompactRepoWatcherWidget: Widget {
+    let kind: String = "CompactRepoWatcherWidget"
 
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-			RepoWatcherWidgetEntryView(entry: entry)
+        StaticConfiguration(kind: kind, provider: CompactRepoWidgetProvider()) { entry in
+			CompactRepoWatcherWidgetEntryView(entry: entry)
 				.containerBackgroundForWidget {
 					EmptyView()
 				}
@@ -25,13 +25,13 @@ struct RepoWatcherWidget: Widget {
 }
 
 #Preview(as: .systemMedium) {
-    RepoWatcherWidget()
+    CompactRepoWatcherWidget()
 } timeline: {
-	RepoEntry(date: .now, topRepository: .dummy1, bottomRepository: .dummy2)
+	CompactRepoWidgetEntry(date: .now, topRepository: .dummy1, bottomRepository: .dummy2)
 }
 
 #Preview(as: .systemLarge) {
-	RepoWatcherWidget()
+	CompactRepoWatcherWidget()
 } timeline: {
-	RepoEntry(date: .now, topRepository: .dummy1, bottomRepository: .dummy2)
+	CompactRepoWidgetEntry(date: .now, topRepository: .dummy1, bottomRepository: .dummy2)
 }

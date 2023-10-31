@@ -8,8 +8,8 @@
 import SwiftUI
 import WidgetKit
 
-struct RepoWatcherWidgetEntryView: View {
-	let entry: RepoEntry
+struct CompactRepoWatcherWidgetEntryView: View {
+	let entry: CompactRepoWidgetEntry
 	
 	@Environment(\.widgetFamily) var family
 	
@@ -24,5 +24,17 @@ struct RepoWatcherWidgetEntryView: View {
 		default:
 			EmptyView()
 		}
+	}
+}
+
+import WidgetKit
+
+struct CompactRepoWatcherWidgetEntryViewPreview: PreviewProvider {
+	static var previews: some View {
+		CompactRepoWatcherWidgetEntryView(entry: CompactRepoWidgetEntry(date: Date(), topRepository: .dummy1, bottomRepository: .dummy2))
+			.previewContext(WidgetPreviewContext(family: .systemLarge))
+			.containerBackground(for: .widget) {
+				Color.clear
+			}
 	}
 }

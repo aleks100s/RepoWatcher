@@ -24,6 +24,13 @@ final class NetworkManager {
 		return repository
 	}
 	
+	func getContributors(url: String) async throws -> [Contributor] {
+		let data = try await fetchData(from: url)
+		let dtos = try decoder.decode([ContributorDTO].self, from: data)
+		let contributors = dtos.map { Contributor(dto: $0) }
+		return contributors
+	}
+	
 	func downloadImageData(url: String) async throws -> Data {
 		try await fetchData(from: url)
 	}
