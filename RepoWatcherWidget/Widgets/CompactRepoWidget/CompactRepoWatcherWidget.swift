@@ -20,7 +20,15 @@ struct CompactRepoWatcherWidget: Widget {
         }
         .configurationDisplayName("Repo Watcher")
         .description("This is an example widget.")
-		.supportedFamilies([.systemMedium, .systemLarge])
+		.supportedFamilies(
+			[
+				.systemMedium,
+				.systemLarge,
+				.accessoryInline,
+				.accessoryCircular,
+				.accessoryRectangular
+			]
+		)
     }
 }
 
@@ -31,6 +39,24 @@ struct CompactRepoWatcherWidget: Widget {
 }
 
 #Preview(as: .systemLarge) {
+	CompactRepoWatcherWidget()
+} timeline: {
+	CompactRepoWidgetEntry(date: .now, topRepository: .dummy1, bottomRepository: .dummy2)
+}
+
+#Preview(as: .accessoryInline) {
+	CompactRepoWatcherWidget()
+} timeline: {
+	CompactRepoWidgetEntry(date: .now, topRepository: .dummy1, bottomRepository: .dummy2)
+}
+
+#Preview(as: .accessoryCircular) {
+	CompactRepoWatcherWidget()
+} timeline: {
+	CompactRepoWidgetEntry(date: .now, topRepository: .dummy1, bottomRepository: .dummy2)
+}
+
+#Preview(as: .accessoryRectangular) {
 	CompactRepoWatcherWidget()
 } timeline: {
 	CompactRepoWidgetEntry(date: .now, topRepository: .dummy1, bottomRepository: .dummy2)

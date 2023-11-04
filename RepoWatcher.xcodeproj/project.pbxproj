@@ -251,9 +251,9 @@
 		27BCA6DC2AF03AC300462E71 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				27BCA6DE2AF03AF500462E71 /* CompactRepoWidget */,
 				27BCA6DF2AF03C1D00462E71 /* ContributorWidget */,
 				27BCA6912AEE6FBB00462E71 /* RepoWatcherWidgetBundle.swift */,
-				27BCA6DE2AF03AF500462E71 /* CompactRepoWidget */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
