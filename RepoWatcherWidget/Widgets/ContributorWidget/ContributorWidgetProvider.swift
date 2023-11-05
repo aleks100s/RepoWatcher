@@ -7,19 +7,19 @@
 
 import WidgetKit
 
-struct ContributorWidgetProvider: TimelineProvider {
+struct ContributorWidgetProvider: IntentTimelineProvider {
 	func placeholder(in context: Context) -> ContributorWidgetEntry {
 		ContributorWidgetEntry(date: Date(), repository: .dummy1)
 	}
 
-	func getSnapshot(in context: Context, completion: @escaping (ContributorWidgetEntry) -> ()) {
+	func getSnapshot(for configuration: SelectSingleRepoIntent, in context: Context, completion: @escaping (ContributorWidgetEntry) -> ()) {
 		let entry = ContributorWidgetEntry(date: Date(), repository: .dummy1)
 		completion(entry)
 	}
 
-	func getTimeline(in context: Context, completion: @escaping (Timeline<ContributorWidgetEntry>) -> ()) {
+	func getTimeline(for configuration: SelectSingleRepoIntent, in context: Context, completion: @escaping (Timeline<ContributorWidgetEntry>) -> ()) {
 		Task {
-			let url = API.google.rawValue
+			let url = API.prefix + (configuration.repository ?? "")
 			var repository = try await NetworkManager.shared.getRepo(url: url)
 			let avatarData = try await NetworkManager.shared.downloadImageData(url: repository.owner.avatarUrl)
 			repository.avatarData = avatarData

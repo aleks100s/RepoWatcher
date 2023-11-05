@@ -14,3 +14,7 @@ extension UserDefaults {
 		UserDefaults(suiteName: "group.com.alextos.RepoWatcher") ?? UserDefaults.standard
 	}
 }
+
+enum UserDefaultsError: Error {
+	case retrieval
+}

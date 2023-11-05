@@ -12,7 +12,7 @@ struct ContributorWidget: Widget {
 	let kind: String = "ContributorWidget"
 
 	var body: some WidgetConfiguration {
-		StaticConfiguration(kind: kind, provider: ContributorWidgetProvider()) { entry in
+		IntentConfiguration(kind: kind, intent: SelectSingleRepoIntent.self, provider: ContributorWidgetProvider()) { entry in
 			ContributorWidgetEntryView(entry: entry)
 				.containerBackgroundForWidget {
 					EmptyView()
