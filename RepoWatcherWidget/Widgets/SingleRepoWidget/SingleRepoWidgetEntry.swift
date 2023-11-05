@@ -7,8 +7,7 @@
 
 import WidgetKit
 
-struct CompactRepoWidgetEntry: TimelineEntry {
+struct SingleRepoWidgetEntry: TimelineEntry {
 	let date: Date
-	let topRepository: Repository
-	let bottomRepository: Repository?
+	let repository: Repository
 }

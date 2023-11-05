@@ -11,7 +11,8 @@ import SwiftUI
 @main
 struct RepoWatcherWidgetBundle: WidgetBundle {
     var body: some Widget {
-        CompactRepoWatcherWidget()
+		SingleRepoWatcherWidget()
+		DoubleRepoWatcherWidget()
 		ContributorWidget()
     }
 }
