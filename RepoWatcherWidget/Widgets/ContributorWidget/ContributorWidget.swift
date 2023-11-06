@@ -14,9 +14,7 @@ struct ContributorWidget: Widget {
 	var body: some WidgetConfiguration {
 		IntentConfiguration(kind: kind, intent: SelectSingleRepoIntent.self, provider: ContributorWidgetProvider()) { entry in
 			ContributorWidgetEntryView(entry: entry)
-				.containerBackgroundForWidget {
-					EmptyView()
-				}
+				.containerBackgroundForWidget {}
 		}
 		.configurationDisplayName("Contributor Widget")
 		.description("This is an example widget.")
@@ -28,10 +26,12 @@ struct ContributorWidget: Widget {
 	ContributorWidget()
 } timeline: {
 	ContributorWidgetEntry(date: .now, repository: .dummy1)
+	ContributorWidgetEntry(date: .now, repository: .dummy2)
 }
 
 #Preview(as: .systemLarge) {
 	ContributorWidget()
 } timeline: {
 	ContributorWidgetEntry(date: .now, repository: .dummy1)
+	ContributorWidgetEntry(date: .now, repository: .dummy2)
 }

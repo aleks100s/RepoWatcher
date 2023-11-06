@@ -36,6 +36,7 @@ struct RepoMediumView: View {
 						StatLabel(value: repository.openIssues, systemImageName: "exclamationmark.triangle.fill")
 					}
 				}
+				.contentTransition(.numericText())
 			}
 			
 			Spacer()
@@ -48,6 +49,7 @@ struct RepoMediumView: View {
 					.frame(width: 90)
 					.minimumScaleFactor(0.6)
 					.lineLimit(1)
+					.contentTransition(.numericText())
 				
 				Text("days ago")
 					.font(.caption2)

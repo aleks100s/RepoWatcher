@@ -12,10 +12,10 @@ extension Repository {
 		name: "Repository #1",
 		owner: Owner(avatarUrl: "Heh"),
 		hasIssues: true,
-		forks: 123,
-		watchers: 456,
-		openIssues: 999,
-		pushedAt: Date(),
+		forks: Int.random(in: 100 ..< 999),
+		watchers: Int.random(in: 100 ..< 999),
+		openIssues: Int.random(in: 100 ..< 999),
+		pushedAt: Date().addingTimeInterval(-60 * 60 * 24 * Double(Int.random(in: 50 ..< 150))),
 		contributors: [.dummy, .dummy, .dummy, .dummy]
 	)
 	
@@ -23,10 +23,10 @@ extension Repository {
 		name: "Repository #2",
 		owner: Owner(avatarUrl: "Mda"),
 		hasIssues: false,
-		forks: 321,
-		watchers: 1,
-		openIssues: 999,
-		pushedAt: Date(),
+		forks: Int.random(in: 100 ..< 999),
+		watchers: Int.random(in: 100 ..< 999),
+		openIssues: Int.random(in: 100 ..< 999),
+		pushedAt: Date().addingTimeInterval(-60 * 60 * 24 * Double(Int.random(in: 50 ..< 150))),
 		contributors: [.dummy, .dummy, .dummy]
 	)
 }

@@ -14,9 +14,7 @@ struct DoubleRepoWatcherWidget: Widget {
 	var body: some WidgetConfiguration {
 		IntentConfiguration(kind: kind, intent: SelectTwoReposIntent.self, provider: DoubleRepoWidgetProvider()) { entry in
 			DoubleRepoWatcherWidgetEntryView(entry: entry)
-				.containerBackgroundForWidget {
-					EmptyView()
-				}
+				.containerBackgroundForWidget {}
 		}
 		.configurationDisplayName("Double Repo Watcher")
 		.description("This is an example widget.")

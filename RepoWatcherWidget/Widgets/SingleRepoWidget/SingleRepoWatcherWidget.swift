@@ -14,9 +14,7 @@ struct SingleRepoWatcherWidget: Widget {
     var body: some WidgetConfiguration {
 		IntentConfiguration(kind: kind, intent: SelectSingleRepoIntent.self, provider: SingleRepoWidgetProvider()) { entry in
 			SingleRepoWatcherWidgetEntryView(entry: entry)
-				.containerBackgroundForWidget {
-					EmptyView()
-				}
+				.containerBackgroundForWidget {}
         }
         .configurationDisplayName("Single Repo Watcher")
         .description("This is an example widget.")
@@ -35,12 +33,14 @@ struct SingleRepoWatcherWidget: Widget {
 	SingleRepoWatcherWidget()
 } timeline: {
 	SingleRepoWidgetEntry(date: .now, repository: .dummy1)
+	SingleRepoWidgetEntry(date: .now, repository: .dummy2)
 }
 
 #Preview(as: .systemLarge) {
 	SingleRepoWatcherWidget()
 } timeline: {
 	SingleRepoWidgetEntry(date: .now, repository: .dummy1)
+	SingleRepoWidgetEntry(date: .now, repository: .dummy2)
 }
 
 #Preview(as: .accessoryInline) {
