@@ -12,7 +12,7 @@ struct SingleRepoWatcherWidget: Widget {
     let kind: String = "SingleRepoWatcherWidget"
 
     var body: some WidgetConfiguration {
-		IntentConfiguration(kind: kind, intent: SelectSingleRepoIntent.self, provider: SingleRepoWidgetProvider()) { entry in
+		AppIntentConfiguration(kind: kind, intent: SelectSingleRepo.self, provider: SingleRepoWidgetProvider()) { entry in
 			SingleRepoWatcherWidgetEntryView(entry: entry)
 				.containerBackgroundForWidget {}
         }

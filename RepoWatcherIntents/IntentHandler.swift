@@ -31,29 +31,3 @@ extension IntentHandler: SelectSingleRepoIntentHandling {
 		"aleks100s/darts"
 	}
 }
-
-extension IntentHandler: SelectTwoReposIntentHandling {
-	func provideTopRepositoryOptionsCollection(for intent: SelectTwoReposIntent) async throws -> INObjectCollection<NSString> {
-		guard let repos = UserDefaults.shared.value(forKey: UserDefaults.repoKey) as? [NSString] else {
-			throw UserDefaultsError.retrieval
-		}
-		
-		return INObjectCollection(items: repos)
-	}
-	
-	func provideBottomRepositoryOptionsCollection(for intent: SelectTwoReposIntent) async throws -> INObjectCollection<NSString> {
-		guard let repos = UserDefaults.shared.value(forKey: UserDefaults.repoKey) as? [NSString] else {
-			throw UserDefaultsError.retrieval
-		}
-		
-		return INObjectCollection(items: repos)
-	}
-	
-	func defaultTopRepository(for intent: SelectTwoReposIntent) -> String? {
-		"aleks100s/darts"
-	}
-	
-	func defaultBottomRepository(for intent: SelectTwoReposIntent) -> String? {
-		"aleks100s/darts"
-	}
-}
