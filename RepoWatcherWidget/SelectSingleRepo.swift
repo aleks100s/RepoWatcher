@@ -24,7 +24,7 @@ struct SelectSingleRepo: AppIntent, WidgetConfigurationIntent, CustomIntentMigra
 	
 	static let intentClassName = "SelectSignleRepoIntent"
 	static let title: LocalizedStringResource = "Select Single Repo"
-	static let description: IntentDescription? = ""
+	static let description: IntentDescription? = "Select a repo to watch"
 	
 	@Parameter(title: "Repo", optionsProvider: StringOptionsProvider())
 	var repository: String?
